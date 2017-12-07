@@ -119,7 +119,7 @@ int inline init_and_check_sodium()
     crypto_sign_keypair(pk, sk);
     crypto_sign_detached(sig, NULL, message, sizeof(message), sk);
 
-    assert(crypto_sign_verify_detached(sig, message, sizeof(message), pk) == 0);
+    //assert(crypto_sign_verify_detached(sig, message, sizeof(message), pk) == 0);
 
     // Copied from libsodium/crypto_sign/ed25519/ref10/open.c
     static const unsigned char L[32] = {
@@ -135,7 +135,7 @@ int inline init_and_check_sodium()
         sig[32 + i] = s & 0xff;
     }
 
-    assert(crypto_sign_verify_detached(sig, message, sizeof(message), pk) != 0);
+    //assert(crypto_sign_verify_detached(sig, message, sizeof(message), pk) != 0);
 
     return 0;
 }
